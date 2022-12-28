@@ -3,9 +3,8 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import AllQuotes from "./pages/AllQuotes";
 import QuoteDetail from "./pages/QuoteDetail";
 import NewQuote from "./pages/NewQuote";
-import MainNavigation from "./components/layout/MainNavigation";
-import Layout from "./components/layout/Layout";
 import NotFound from "./pages/NotFound";
+import Layout from "./components/layout/Layout";
 
 function App() {
   return (
@@ -17,16 +16,16 @@ function App() {
         <Route path="/quotes" exact>
           <AllQuotes />
         </Route>
-        <Route path="/quotes/:quoteId" exact>
+        <Route path="/quotes/:quoteId">
           <QuoteDetail />
         </Route>
-        <Route path="/new-quote" exact>
+        <Route path="/new-quote">
           <NewQuote />
         </Route>
+        <Route path="*">
+          <NotFound />
+        </Route>
       </Switch>
-      <Route path="*">
-        <NotFound />
-      </Route>
     </Layout>
   );
 }

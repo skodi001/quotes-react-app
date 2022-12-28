@@ -24,10 +24,11 @@ const QuoteList = (props) => {
 
   const sortedQuotes = sortQuotes(props.quotes, isSortingAscending);
 
-  console.log(location);
-
   const changeSortingHandler = () => {
-    history.push("/quotes?sort=asc" + isSortingAscending ? "desc" : "asc");
+    history.push({
+      pathname: location.pathname,
+      search: `?sort=${isSortingAscending ? "desc" : "asc"}`,
+    });
   };
 
   return (
@@ -38,7 +39,7 @@ const QuoteList = (props) => {
         </button>
       </div>
       <ul className={classes.list}>
-        {sortedQuotes.quotes.map((quote) => (
+        {sortedQuotes.map((quote) => (
           <QuoteItem
             key={quote.id}
             id={quote.id}

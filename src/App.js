@@ -5,6 +5,7 @@ import QuoteDetail from "./pages/QuoteDetail";
 import NewQuote from "./pages/NewQuote";
 import MainNavigation from "./components/layout/MainNavigation";
 import Layout from "./components/layout/Layout";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           <NewQuote />
         </Route>
       </Switch>
+      <Route path="*">
+        <NotFound />
+      </Route>
     </Layout>
   );
 }
